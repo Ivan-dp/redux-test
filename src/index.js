@@ -7,15 +7,15 @@ import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 const defaultState = {
-  cash: 0,
+  value: 0,
 };
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
-    case "ADD_CASH":
-      return { ...state, cash: state.cash + action.payload };
-    case "GET_CASH":
-      return { ...state, cash: state.cash - action.payload };
+    case "ADD":
+      return { ...state, value: state.value + 1 };
+    case "REDUCE":
+      return { ...state, value: state.value - 1 };
     default:
       return state;
   }

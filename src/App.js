@@ -4,15 +4,23 @@ import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
-  const cash = useSelector((state) => state.cash);
+  const value = useSelector((state) => state.value);
 
-  console.log(cash);
+  console.log(value);
+
+  const increment = () => {
+    dispatch({ type: "ADD" });
+  };
+  const decrement = () => {
+    dispatch({ type: "REDUCE" });
+  };
 
   return (
     <div className={"app"}>
       <div style={{ display: "flex" }}>
-        <button>Пополнить счёт</button>
-        <button>Снять со счёта</button>
+        <button onClick={() => decrement()}>REDUCE</button>
+        <h3>{value}</h3>
+        <button onClick={() => increment()}>ADD</button>
       </div>
     </div>
   );
